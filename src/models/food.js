@@ -1,4 +1,5 @@
 class Food {
+  #id;
   #name;
   #calories;
   #carbohydrate;
@@ -8,7 +9,8 @@ class Food {
   #packageQuantity;
   #quantity;
 
-  constructor(_name, _calories, _carbohydrate, _protein, _fiber, _sodium, _packageQuantity, _quantity) {
+  constructor(_id, _name, _calories, _carbohydrate, _protein, _fiber, _sodium, _packageQuantity, _quantity) {
+    this.#id = _id;
     this.#name = _name;
     this.#calories = _calories;
     this.#carbohydrate = _carbohydrate;
@@ -35,6 +37,10 @@ class Food {
     if (this.getSodium() > 0) {
       this.setSodium((this.getQuantity() * this.getSodium()) / this.getPackageQuantity());
     }
+  }
+
+  getId() {
+    return this.#id;
   }
 
   getName() {

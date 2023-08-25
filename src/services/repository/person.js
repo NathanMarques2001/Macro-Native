@@ -36,18 +36,6 @@ class PersonRepository {
       });
     })
   }
-
-  // async deletePerson(person) {
-  //   return new Promise((resolve, reject) => {
-  //     db.transaction((transact) => {
-  //       transact.executeSql("DELETE FROM person WHERE id = ?", [person.id], () => {
-  //         resolve("Person deleted successfully");
-  //       }, () => {
-  //         reject("Error deleted person");
-  //       })
-  //     });
-  //   })
-  // }
 }
 
 export const personRepository = new PersonRepository();

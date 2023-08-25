@@ -5,6 +5,9 @@ class Diet {
   #activityFactor;
   #dietType;
   #dailyCalories;
+  #dailyCarbohydrate;
+  #dailyProtein;
+  #dailyGordura;
 
   constructor(_person, _activityFactor, _dietType) {
     this.#person = _person;
@@ -17,13 +20,13 @@ class Diet {
   calculateBMR() {
     let weight = 0, height = 0, age = 0, bmr = 0;
 
-    if (this.#person.getSex() === 'M') {
+    if (this.#person.getGender() === 'M') {
       // BMR = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)
       bmr = 88.362;
       weight = 13.397;
       height = 4.799;
       age = 5.677;
-    } else if (this.#person.getSex() === 'F') {
+    } else if (this.#person.getGender() === 'F') {
       // BMR = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)
       bmr = 447.593;
       weight = 9.247;
@@ -69,6 +72,18 @@ class Diet {
     }
 
     return calories;
+  }
+
+  calculateDailyCarbohydrate() {
+
+  }
+
+  calculateDailyProtein() {
+
+  }
+
+  calculateDailyGordura() {
+
   }
 }
 
