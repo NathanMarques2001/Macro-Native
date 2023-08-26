@@ -1,6 +1,6 @@
-import { db } from "../persistence/connection";
+import { db } from "../services/connection";
 
-class FoodRepository {
+class FoodController {
 
   async createFood(food) {
     return new Promise((resolve, reject) => {
@@ -51,4 +51,4 @@ class FoodRepository {
   }
 }
 
-export const foodRepository = new FoodRepository();
+export const FoodController = new FoodController();

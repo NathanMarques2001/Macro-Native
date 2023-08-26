@@ -1,6 +1,6 @@
-import { db } from "../persistence/connection";
+import { db } from "../services/connection";
 
-class DietRepository {
+class DietController {
 
   async createDiet(diet) {
     return new Promise((resolve, reject) => {
@@ -39,4 +39,4 @@ class DietRepository {
   }
 }
 
-export const dietRepository = new DietRepository();
+export const DietController = new DietController();

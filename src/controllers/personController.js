@@ -1,6 +1,6 @@
-import { db } from "../persistence/connection";
+import { db } from "../services/connection";
 
-class PersonRepository {
+class PersonController {
   async createPerson(person) {
     return new Promise((resolve, reject) => {
       db.transaction((transact) => {
@@ -38,4 +38,4 @@ class PersonRepository {
   }
 }
 
-export const personRepository = new PersonRepository();
+export const PersonController = new PersonController();

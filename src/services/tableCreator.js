@@ -1,6 +1,6 @@
 import { db } from "./connection";
 
-class CreateTable {
+class TableCreator {
   tablePerson() {
     db.transaction((transact) => {
       transact.executeSql("CREATE TABLE IF NOT EXISTS person (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, birthDate TEXT, gender TEXT, weight REAL, height REAL);")
@@ -20,4 +20,4 @@ class CreateTable {
   }
 }
 
-export const createTable = new CreateTable();
+export const TableCreator = new TableCreator();

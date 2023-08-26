@@ -7,14 +7,17 @@ class Diet {
   #dailyCalories;
   #dailyCarbohydrate;
   #dailyProtein;
-  #dailyGordura;
+  #dailyFat;
 
   constructor(_person, _activityFactor, _dietType) {
     this.#person = _person;
     this.#activityFactor = _activityFactor;
     this.#bmr = Math.round(this.calculateBMRWithActivity());
     this.#dietType = _dietType;
-    this.#dailyCalories = this.calculateDailyCalories();
+    this.#dailyCalories = this.calculateDailyCalories().toFixed(0);
+    this.#dailyProtein = this.calculateDailyProtein().toFixed(0);
+    this.#dailyCarbohydrate = this.calculateDailyCarbohydrate().toFixed(0);
+    this.#dailyFat = this.calculateDailyFat().toFixed(0);
   }
 
   calculateBMR() {
@@ -63,28 +66,75 @@ class Diet {
   calculateDailyCalories() {
     let calories = 0;
 
-    if (this.#dietType === 'bulking') {
+    if (this.#dietType === 'Gain weight') {
       // Weight gain
       calories = this.#bmr + 300;
-    } else if (this.#dietType === 'cutting') {
+    } else if (this.#dietType === 'Lose weight') {
       // Weight loss
       calories = this.#bmr - 300;
+    } else if (this.#dietType === 'Maintain weight') {
+      // Weight maintenance
+      calories = this.#bmr;
     }
 
     return calories;
   }
 
   calculateDailyCarbohydrate() {
-
+    // 1g carb = 4 cal
+    if (this.#dietType === 'Gain weight') {
+      return ((this.#dailyCalories * 0.65) / 4);
+    }
+    else if (this.#dietType === 'Maintain weight') {
+      return ((this.#dailyCalories * 0.55) / 4);
+    }
+    else if (this.#dietType === 'Lose weight') {
+      return ((this.#dailyCalories * 0.45) / 4);
+    }
   }
 
   calculateDailyProtein() {
-
+    // 1g protein = 4 cal
+    if (this.#dietType === 'Gain weight') {
+      return (this.#person.getWeight() * 2.0);
+    }
+    else if (this.#dietType === 'Maintain weight') {
+      return (this.#person.getWeight() * 1.6);
+    }
+    else if (this.#dietType === 'Lose weight') {
+      return (this.#person.getWeight() * 1.2);
+    }
   }
 
-  calculateDailyGordura() {
-
+  calculateDailyFat() {
+    // 1g fat = 9 cal
+    if (this.#dietType === 'Gain weight') {
+      return ((this.#dailyCalories * 0.30) / 9);
+    }
+    else if (this.#dietType === 'Maintain weight') {
+      return ((this.#dailyCalories * 0.25) / 9);
+    }
+    else if (this.#dietType === 'Lose weight') {
+      return ((this.#dailyCalories * 0.20) / 9);
+    }
   }
+
+  getCalories() {
+    return this.#dailyCalories;
+  }
+
+  getCarbohydrate() {
+    return this.#dailyCarbohydrate;
+  }
+
+  getProtein() {
+    return this.#dailyProtein;
+  }
+
+  getFat() {
+    return this.#dailyFat;
+  }
+
 }
 
 module.exports = Diet;
