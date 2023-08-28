@@ -1,6 +1,9 @@
+import image from '../../assets/images/welcome.png'
+
 export const firstAccess = {
   welcomePage: {
     title: 'Bem-vindo ao Macro Native!',
+    imagePath: image,
     content: {
       firstParagraph: 'Sua jornada para um estilo de vida mais saudável e equilibrado começa aqui. Com o Macro Native, você pode monitorar seus macronutrientes de forma fácil e eficaz, tudo no conforto do seu dispositivo.',
       secondParagraph: 'Acompanhe suas calorias, proteínas, carboidratos e gorduras diárias de maneira intuitiva. Nosso aplicativo simplifica a gestão de sua dieta, permitindo que você alcance suas metas nutricionais de maneira eficaz.'

@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { loading } from './config/data/loading';
+import { globalStyles } from './styles/globalStyle';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Mariana por aqui</Text>
-      <StatusBar style="auto" />
+      <Image source={loading.image} />
     </View>
   );
 }
@@ -13,7 +14,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FF0000',
+    backgroundColor: globalStyles.colors.darkGray,
     alignItems: 'center',
     justifyContent: 'center',
   },

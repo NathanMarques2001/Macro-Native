@@ -1,1 +1,1 @@
-import { firstAccess } from "../../../../../assets/texts/first-access";
+import { firstAccess } from "../../../../../config/data/first-access";
