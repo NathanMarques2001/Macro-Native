@@ -20,7 +20,7 @@ export const firstAccess = {
       },
       inputBirthday: {
         label: 'Data de nascimento',
-        placeholder: 'Selecione sua data de nascimento...'
+        placeholder: 'Digite sua data de nascimento...'
       },
       inputWeight: {
         label: 'Peso',

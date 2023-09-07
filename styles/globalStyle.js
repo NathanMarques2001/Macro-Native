@@ -6,5 +6,6 @@ export const globalStyles = {
     softYellow: '#FFD700',
     lightGray: '#F5F5F5',
     skyBlue: '#87CEEB',
+    placeholder: '#FFFFFF99',
   },
 }

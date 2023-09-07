@@ -1,21 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { loading } from './config/data/loading';
-import { globalStyles } from './styles/globalStyle';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import { WelcomePage } from './src/views/screens/first-acess/welcome';
+import { PersonalDataPage } from './src/views/screens/first-acess/personal-data';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Image source={loading.image} />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Screen name="Welcome" component={WelcomePage} />
+        <Stack.Screen name="PersonalData" component={PersonalDataPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: globalStyles.colors.darkGray,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
